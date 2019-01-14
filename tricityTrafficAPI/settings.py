@@ -27,6 +27,8 @@ SECRET_KEY = 'w@rl2z!&r9@^_xi4i*jmcwl0ck3b48i2(282@rw403=ltwz@3t'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '127.0.0.1',
+    '.herokuapp.com'
     'tricity-traffic-api.herokuapp.com'
 ]
 
@@ -78,12 +80,13 @@ WSGI_APPLICATION = 'tricityTrafficAPI.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'tricity-traffic-api',
+#
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
