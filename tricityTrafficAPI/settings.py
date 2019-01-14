@@ -28,8 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    '.herokuapp.com'
-    'tricity-traffic-api.herokuapp.com'
+    '.herokuapp.com',
+    'tricity-traffic-api.herokuapp.com',
 ]
 
 # Application definition
