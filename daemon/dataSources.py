@@ -59,3 +59,36 @@ class TrojmiastoDataSource:
             result.append(notification)
 
         return result
+
+
+class FacebookZepsutyDataSource:
+    def __init__(self):
+        self.url = "https://www.facebook.com/zepsuty"
+        self.name = "facebook.com/zepsuty"
+
+    def get_site(self):
+        response = requests.get(self.url)
+        if response.status_code != 200:
+            raise requests.exceptions.HTTPError
+
+        return response.text
+
+    def parse_to_notification(self, post):
+        content = post.find(class_="userContent").get_text().strip()
+        date = datetime.fromtimestamp(int(post.find('abbr')['data-utime']))
+        notification = create_notification("", content, date, self.name)
+
+        return notification
+
+    def get_data(self, last_fetch=None):
+        feed = BeautifulSoup(self.get_site(), 'html.parser')
+
+        posts = []
+        for post in feed.find_all(class_="userContent"):
+            notification = self.parse_to_notification(post.parent)
+
+            if last_fetch and notification.date <= last_fetch:
+                continue
+
+            posts.append(notification)
+        return posts

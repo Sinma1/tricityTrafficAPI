@@ -1,10 +1,12 @@
-from daemon.dataSources import TrojmiastoDataSource
+from daemon.dataSources import TrojmiastoDataSource, FacebookZepsutyDataSource
 from shared.models import Notification
+
 
 class Fetcher:
     def __init__(self):
         self.sources = [
-            TrojmiastoDataSource
+            TrojmiastoDataSource,
+            FacebookZepsutyDataSource
         ]
 
     def fetch(self):
