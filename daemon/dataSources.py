@@ -52,9 +52,10 @@ class TrojmiastoDataSource:
         for raport in raports:
             notification = self.parse_to_notification(raport)
 
-            if last_fetch and notification.date <= last_fetch:
+            if last_fetch and notification.date.replace(tzinfo=None) <= last_fetch.replace(tzinfo=None):
                 continue
-
+            from django.utils import timezone
+            k = timezone.now()
             result.append(notification)
 
         return result

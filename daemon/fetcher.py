@@ -9,7 +9,7 @@ class Fetcher:
 
     def fetch(self):
         try:
-            last_fetch = Notification.objects.latest('date')
+            last_fetch = Notification.objects.latest('date').date
         except Notification.DoesNotExist:
             last_fetch = None
 
