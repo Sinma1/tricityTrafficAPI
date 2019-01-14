@@ -1,0 +1,1 @@
+web: gunicorn tricityTrafficAPI.wsgi --log-file -
