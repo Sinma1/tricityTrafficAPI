@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.http import JsonResponse
 
-# Create your views here.
+from api.apimanager import ApiManager
+
+
+def index(request):
+    api = ApiManager()
+    data = api.get(request.GET)
+    return JsonResponse(data, safe=False)
