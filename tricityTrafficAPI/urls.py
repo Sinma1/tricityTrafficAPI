@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('cron/', include('daemon.urls')),
     path('api/', include('api.urls')),
+    path('', include('web.urls')),
 ]

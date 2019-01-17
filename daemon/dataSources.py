@@ -9,7 +9,7 @@ from .helpers import create_notification
 class TrojmiastoDataSource:
     def __init__(self):
         self.url = "https://trojmiasto.pl/raport"
-        self.name = "trojmiastopl"
+        self.name = "trojmiasto.pl"
 
     def get_site(self):
         response = requests.get(self.url)

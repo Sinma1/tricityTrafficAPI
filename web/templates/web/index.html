@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TricityTrafficAPI Documentation</title>
+</head>
+<body>
+
+<p>All API request should go to {{ request.get_host }}/api/<br>
+    for example: {{ request.get_host }}/api/?last=5
+
+</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-0lax"><span style="font-weight:bold">Parametr</span></th>
+    <th class="tg-0lax"><span style="font-weight:bold">Description</span></th>
+  </tr>
+  <tr>
+    <td class="tg-baqh">last=&lt;int&gt;</td>
+    <td class="tg-0lax">Fetch last n results<br>e.g. last=5</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">reverse</td>
+    <td class="tg-0lax">Reverse order of data</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">source=&lt;string&gt;</td>
+    <td class="tg-0lax">Fetch data from specified source<br>e.g. source=trojmiasto.pl</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">since=&lt;YYYY-MM-DD&gt;</td>
+    <td class="tg-0lax">Fetch data added since specified date<br>e.g. since=2019-01-01</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">date=&lt;YYYY-MM-DD&gt;</td>
+    <td class="tg-0lax">Fetch data from specified date<br>e.g. date=2019-01-01</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">daterange=&lt;YYYY-MM-DD&gt;:&lt;YYYY-MM-DD&gt;</td>
+    <td class="tg-0lax">Fetch data from specified range of dates<br>e.g. daterange=2019-01-01:2019-02-02</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">intitle=&lt;string&gt;</td>
+    <td class="tg-0lax">Fetch data with specified string in title<br>e.g. intitle=example title</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">incontent=&lt;string&gt;</td>
+    <td class="tg-0lax">Fetch data with specified string in content<br>e.g. incontent=example content</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">contains=&lt;string&gt;</td>
+    <td class="tg-0lax">Fetch data with specified string in content or title<br>e.g. contains=example content or title</td>
+  </tr>
+</table>
+
+
+</body>
+</html>
