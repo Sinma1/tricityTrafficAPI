@@ -16,3 +16,11 @@ class Notification(models.Model):
 
     def __str__(self):
         return f"({self.date}) {self.title}"
+
+    def __eq__(self, other):
+        if (self.title != other.title or
+            self.content != other.content or
+            self.date != other.date or
+            self.source != other.source):
+            return False
+        return True
