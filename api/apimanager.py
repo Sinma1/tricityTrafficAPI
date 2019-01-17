@@ -19,7 +19,7 @@ class ApiManager:
         }
 
     def get(self, params):
-        notifications = Notification.objects.all()
+        notifications = Notification.objects.all().order_by('-date')
 
         for filter, func in self.filters.items():
             if filter in params:
