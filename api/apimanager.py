@@ -21,9 +21,9 @@ class ApiManager:
     def get(self, params):
         notifications = Notification.objects.all().order_by('-date')
 
-        for filter, func in self.filters.items():
-            if filter in params:
-                notifications = func(notifications, params[filter])
+        for param in params:
+            if param.lower() in self.filters:
+                notifications = self.filters[param.lower()](notifications, params[param])
 
         return NotificationSerializer(notifications, many=True).data
 
