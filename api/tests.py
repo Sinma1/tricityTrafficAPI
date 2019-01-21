@@ -3,15 +3,43 @@ from datetime import datetime
 from django.test import TestCase
 
 # Create your tests here.
+from django.urls import reverse, resolve
+
 from api.apimanager import ApiManager
 from shared.models import Notification
 
 
+class ApiTests(TestCase):
+    def setUp(self):
+        Notification.objects.create(title="1", content="Test notification 1", source="source1",
+                                    date=datetime(2019, 1, 15))
+        Notification.objects.create(title="2", content="Example notification 2", source="source2",
+                                    date=datetime(2019, 1, 16))
+        Notification.objects.create(title="3", content="Simple notification 3", source="source3",
+                                    date=datetime(2019, 1, 17))
+
+    def test_api_status_code(self):
+        url = reverse('api:index')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+    def test_api_parameter_intitle(self):
+        response = self.client.get('/api/?intitle=1')
+        self.assertContains(response, 'Test')
+
+    def test_api_parameter_source(self):
+        response = self.client.get('/api/?source=source3')
+        self.assertContains(response, 'Simple')
+
+
 class ApiManagerTest(TestCase):
     def setUp(self):
-        Notification.objects.create(title="1", content="Test notification 1", source="source1", date=datetime(2019, 1, 15))
-        Notification.objects.create(title="2", content="Example notification 2", source="source2", date=datetime(2019, 1, 16))
-        Notification.objects.create(title="3", content="Simple notification 3", source="source3", date=datetime(2019, 1, 17))
+        Notification.objects.create(title="1", content="Test notification 1", source="source1",
+                                    date=datetime(2019, 1, 15))
+        Notification.objects.create(title="2", content="Example notification 2", source="source2",
+                                    date=datetime(2019, 1, 16))
+        Notification.objects.create(title="3", content="Simple notification 3", source="source3",
+                                    date=datetime(2019, 1, 17))
         self.api = ApiManager()
         self.notifications = Notification.objects.all()
 
